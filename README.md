@@ -31,11 +31,11 @@ The `Exploration.ipynb` notebook leverages **PySpark** to handle and analyze the
 
 ### Key EDA Steps:
 
-- **🔍 Schema Inspection**: Loaded data into PySpark DataFrame and examined structure using `printSchema()`  
-- **📈 Descriptive Stats**: Used `describe()` to view mean, stddev, min, max for key features  
-- **🧱 Missing Values**: Identified nulls across variables with `isNull()` and aggregation queries  
-- **📊 Categorical Variable Distributions**: Analyzed class imbalances using `groupBy().count()`  
-- **🕒 Time-Based Analysis**: Explored temporal patterns in customer behavior using time groupings
+- **Schema Inspection**: Loaded data into PySpark DataFrame and examined structure using `printSchema()`  
+- **Descriptive Stats**: Used `describe()` to view mean, stddev, min, max for key features  
+- **Missing Values**: Identified nulls across variables with `isNull()` and aggregation queries  
+- **Categorical Variable Distributions**: Analyzed class imbalances using `groupBy().count()`  
+- **Time-Based Analysis**: Explored temporal patterns in customer behavior using time groupings
 
 This scalable approach ensured rapid profiling of over a million customer records.
 
@@ -43,17 +43,17 @@ This scalable approach ensured rapid profiling of over a million customer record
 
 ## 🔄 Project Workflow
 
-1. ** Data Ingestion** → Load and preprocess sampled Kaggle dataset  
-2. ** Exploratory Data Analysis** → Distribution, missing value patterns, feature grouping  
-3. ** Feature Engineering** → Rolling averages, mins, maxes, ranges  
-4. ** One-Hot Encoding** → 45 encoded categorical variables  
-5. ** Modeling**
+1. **Data Ingestion** → Load and preprocess sampled Kaggle dataset  
+2. **Exploratory Data Analysis** → Distribution, missing value patterns, feature grouping  
+3. **Feature Engineering** → Rolling averages, mins, maxes, ranges  
+4. **One-Hot Encoding** → 45 encoded categorical variables  
+5. **Modeling**
     - XGBoost (with Grid Search)
     - Neural Network (Keras)
-6. ** Evaluation**
+6. **Evaluation**
     - ROC-AUC Score
     - SHAP for interpretability
-7. ** Business Strategy**
+7. **Business Strategy**
     - Conservative threshold: `0.3`
     - Aggressive threshold: `0.5`
 
@@ -63,17 +63,17 @@ This scalable approach ensured rapid profiling of over a million customer record
 
 The modeling pipeline follows a structured process with robust feature engineering, model tuning, and explainability:
 
-- ** Data Sampling**: 70% random sample of the cleaned data  
-- ** Null Handling**: Imputed numerical columns with median, categorical with mode  
-- ** Encoding**: One-hot encoded 11 key categorical variables  
-- ** Feature Engineering**: Aggregate and time-windowed averages for D, B, P, S, R features  
-- ** Train/Test Split**: 70% Train, 15% Test1, 15% Test2  
-- ** Models**:  
+- **Data Sampling**: 70% random sample of the cleaned data  
+- **Null Handling**: Imputed numerical columns with median, categorical with mode  
+- **Encoding**: One-hot encoded 11 key categorical variables  
+- **Feature Engineering**: Aggregate and time-windowed averages for D, B, P, S, R features  
+- **Train/Test Split**: 70% Train, 15% Test1, 15% Test2  
+- **Models**:  
   - XGBoost (with parameter tuning)  
   - Neural Network (32 grid search configs in Keras)  
-- ** Evaluation**: ROC-AUC used across train/test splits  
-- ** SHAP Analysis**: Explained key features like `P_2`, `B_1`, `S_3`, `D_45` using SHAP  
-- ** Business Strategy**: Thresholds set at 0.3 (conservative) and 0.5 (aggressive)
+- **Evaluation**: ROC-AUC used across train/test splits  
+- **SHAP Analysis**: Explained key features like `P_2`, `B_1`, `S_3`, `D_45` using SHAP  
+- **Business Strategy**: Thresholds set at 0.3 (conservative) and 0.5 (aggressive)
 
 ---
 
