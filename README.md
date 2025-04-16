@@ -25,7 +25,6 @@ Predicting credit card default risk using advanced machine learning models on a 
 
 ---
 
-
 ## 📊 Exploratory Data Analysis (EDA) with PySpark
 
 The `Exploration.ipynb` notebook leverages **PySpark** to handle and analyze the large-scale AmEx credit risk dataset efficiently.
@@ -40,50 +39,41 @@ The `Exploration.ipynb` notebook leverages **PySpark** to handle and analyze the
 
 This scalable approach ensured rapid profiling of over a million customer records.
 
+---
 
 ## 🔄 Project Workflow
 
-1. **📥 Data Ingestion** → Load and preprocess sampled Kaggle dataset
-2. **📊 Exploratory Data Analysis** → Distribution, missing value patterns, feature grouping
-3. **🛠️ Feature Engineering** → Rolling averages, mins, maxes, ranges
-4. **🏗️ One-Hot Encoding** → 45 encoded categorical variables
-5. **🧠 Modeling**
+1. ** Data Ingestion** → Load and preprocess sampled Kaggle dataset  
+2. ** Exploratory Data Analysis** → Distribution, missing value patterns, feature grouping  
+3. ** Feature Engineering** → Rolling averages, mins, maxes, ranges  
+4. ** One-Hot Encoding** → 45 encoded categorical variables  
+5. ** Modeling**
     - XGBoost (with Grid Search)
-    - Neural Network (with Keras + Grid Search)
-6. **📈 Evaluation**
+    - Neural Network (Keras)
+6. ** Evaluation**
     - ROC-AUC Score
-    - SHAP for model explainability
-7. **💡 Business Strategy**
+    - SHAP for interpretability
+7. ** Business Strategy**
     - Conservative threshold: `0.3`
     - Aggressive threshold: `0.5`
 
 ---
 
-## 📊 Exploratory Data Analysis
+## 🧠 Modeling Workflow (XGBoost & Neural Network)
 
-- Visualized missingness and feature patterns across customer timelines
-- Sampled customers' profiles across time for sanity checks
-- Found significant nulls in payment and balance features, imputed via median
+The modeling pipeline follows a structured process with robust feature engineering, model tuning, and explainability:
 
----
-
-## 🧠 Modeling
-
-### XGBoost
-
-- Tuned: `n_estimators`, `learning_rate`, `subsample`, `colsample_bytree`, `scale_pos_weight`
-- Grid Search across 72+ configs × 3-fold CV
-- SHAP analysis for interpretation:
-  - `P_2`, `B_1`, `S_3`, and `D_45` heavily influenced predictions
-- Best model selected based on:
-  - Highest ROC-AUC on Test Set
-  - Smallest gap between Train and Test ROC-AUC
-
-### Neural Network
-
-- Tuned: `#hidden layers`, `#nodes/layer`, `activation`, `dropout`, `batch size`
-- 32 model variations tested using TensorFlow/Keras
-- Final model outperformed XGBoost in AUC
+- ** Data Sampling**: 70% random sample of the cleaned data  
+- ** Null Handling**: Imputed numerical columns with median, categorical with mode  
+- ** Encoding**: One-hot encoded 11 key categorical variables  
+- ** Feature Engineering**: Aggregate and time-windowed averages for D, B, P, S, R features  
+- ** Train/Test Split**: 70% Train, 15% Test1, 15% Test2  
+- ** Models**:  
+  - XGBoost (with parameter tuning)  
+  - Neural Network (32 grid search configs in Keras)  
+- ** Evaluation**: ROC-AUC used across train/test splits  
+- ** SHAP Analysis**: Explained key features like `P_2`, `B_1`, `S_3`, `D_45` using SHAP  
+- ** Business Strategy**: Thresholds set at 0.3 (conservative) and 0.5 (aggressive)
 
 ---
 
@@ -110,34 +100,15 @@ AmexCreditRiskProject/
 └── README.md                           # (This file)
 ```
 
----
-
-## ▶️ How to Run
-
-1. Clone the repo:
-```bash
-git clone https://github.com/anmol-dwivedi/AmexCreditRiskProject.git
-cd AmexCreditRiskProject
-```
-
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-3. Run the notebooks in order:
-   - `Exploration.ipynb`
-   - `DataPrepFull_Modelling.ipynb`
-   - `1_Final_AML_Project_Code.ipynb`
 
 ---
 
 ## 🚀 Future Work
 
-- Incorporate AmEx competition metric for custom evaluation
-- Deploy model using Streamlit/Flask for live scoring
-- Experiment with LightGBM, CatBoost
-- Integrate AutoML techniques (e.g., Optuna, FLAML)
+- Incorporate AmEx competition metric for custom evaluation  
+- Deploy model using Streamlit/Flask for live scoring  
+- Experiment with LightGBM, CatBoost  
+- Integrate AutoML techniques (e.g., Optuna, FLAML)  
 
 ---
 
