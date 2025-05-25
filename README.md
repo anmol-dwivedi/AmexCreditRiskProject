@@ -9,7 +9,7 @@ Predicting credit card default risk using advanced machine learning models on a 
 
 ---
 
-## 📦 Dataset Overview
+##  Dataset Overview
 
 - **Source**: [AmEx Default Prediction](https://www.kaggle.com/competitions/amex-default-prediction)
 - **Original Size**: 190+ features, ~5.5 million rows
@@ -25,7 +25,7 @@ Predicting credit card default risk using advanced machine learning models on a 
 
 ---
 
-## 📊 Exploratory Data Analysis (EDA) with PySpark
+##  Exploratory Data Analysis (EDA) with PySpark
 
 The `Exploration.ipynb` notebook leverages **PySpark** to handle and analyze the large-scale AmEx credit risk dataset efficiently.
 
@@ -41,7 +41,7 @@ This scalable approach ensured rapid profiling of over a million customer record
 
 ---
 
-## 🔄 Project Workflow
+##  Project Workflow
 
 1. **Data Ingestion** → Load and preprocess sampled Kaggle dataset  
 2. **Exploratory Data Analysis** → Distribution, missing value patterns, feature grouping  
@@ -59,7 +59,7 @@ This scalable approach ensured rapid profiling of over a million customer record
 
 ---
 
-## 🧠 Modeling Workflow (XGBoost & Neural Network)
+##  Modeling Workflow (XGBoost & Neural Network)
 
 The modeling pipeline follows a structured process with robust feature engineering, model tuning, and explainability:
 
@@ -77,7 +77,7 @@ The modeling pipeline follows a structured process with robust feature engineeri
 
 ---
 
-## 🎯 Business Strategy
+##  Business Strategy
 
 | Strategy      | Threshold | Objective                          |
 |---------------|-----------|------------------------------------|
@@ -86,7 +86,7 @@ The modeling pipeline follows a structured process with robust feature engineeri
 
 ---
 
-## 🗂️ Repository Structure
+##  Repository Structure
 
 ```
 AmexCreditRiskProject/
@@ -103,7 +103,7 @@ AmexCreditRiskProject/
 
 ---
 
-## 🚀 Future Work
+##  Future Work
 
 - Incorporate AmEx competition metric for custom evaluation  
 - Deploy model using Streamlit/Flask for live scoring  
@@ -112,7 +112,7 @@ AmexCreditRiskProject/
 
 ---
 
-## 🙌 Acknowledgments
+##  Acknowledgments
 
 Built by:
 - [Anmol Dwivedi](https://github.com/anmol-dwivedi)
